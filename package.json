@@ -1,0 +1,29 @@
+{
+    "name": "olmap",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack --config ./build/webpack.dev.js --watch",
+        "build": "webpack --config ./build/webpack.config.js"
+    },
+    "keywords": [
+        "olmap",
+        "map"
+    ],
+    "author": "chenyuan",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.21.0",
+        "babel-loader": "^6.2.10",
+        "babel-preset-es2015": "^6.18.0",
+        "webpack": "^2.2.1",
+        "webpack-merge": "^4.1.0",
+        "clean-webpack-plugin": "^0.1.17"
+    },
+    "dependencies": {
+        "jquery": "^3.2.1",
+        "lodash": "^4.17.4",
+        "projzh": "^0.5.0"
+    }
+}
