@@ -1,21 +1,20 @@
 import ol from "openlayers";
 import _ from "lodash";
 
-
 // 创建样式
-let createStyle = function(){}
+let createStyle = function() {};
 
 // 创建矢量图层
-let createVector = function(){}
+let createVector = function() {};
 
 // 创建绘图交互对象
-let createInteDraw = function(){}
+let createInteDraw = function() {};
 
 // 创建地图覆盖物对象
-let createOverlay = function(){}
+let createOverlay = function() {};
 
 // 创建地图视图对象
-let createView = function(){}
+let createView = function() {};
 
 // 创建地图视图对象
 let createMap = function(options) {
@@ -23,7 +22,7 @@ let createMap = function(options) {
         // 地图图层对象
         layers: [
             new ol.layer.Tile({
-                name:'高德图层',
+                name: "高德图层",
                 source: new AMap()
             })
         ],

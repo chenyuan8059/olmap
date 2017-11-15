@@ -57,6 +57,7 @@ function Olmap(options) {
 
     // 创建地图对象
     let olmap = createMap(options)
+
     // 获取地图的视图控对象
     const olmapView = olmap.getView();
     
@@ -175,7 +176,11 @@ function Olmap(options) {
         return olmapView.getProjection()
     }
     // 获取地图容器 DOM 元素
-    this.target = function(){
+    this.target = function( handler ){
+        if( _.isFunction( handler ) ){
+            handler.call( this, olmap.getTargetElement() )
+            return this
+        }
         return olmap.getTargetElement()
     }
     // 获取瓦片图层对象
@@ -185,11 +190,21 @@ function Olmap(options) {
             .filter(predicate || (() => true))
             .value()
     }
+    // 获取地图交互对象
+    this.interactions = function( interaction ){
+        if( interaction ){
+            // 将地图交互对象到地图
+            olmap.addInteraction( interaction )
+            // 返回对象引用
+            return this
+        }
+        return olmap.getInteractions()
+    }
     // 地图瓦片调试
     this.debug = function(){
         // 获取地图最上层的瓦片层
         var tileLayer = _.last(this.tiles())
-        if( !tileLayer ) reutrn
+        if( !tileLayer ) return
         // 获取地图瓦片数据源
         let tileSource = tileLayer.getSource()
         // 添加一个显示地图瓦片网格的图层
@@ -210,9 +225,33 @@ function Olmap(options) {
 
 
     /*==========================<< 其他初始化操作 Start >>==============================*/
-
+    this.target(element => {
+        element.setAttribute('tabindex', 1)
+    })
 
     /*==========================<< 其他初始化操作 End >>==============================*/
+
+
+
+
+
+
+
+
+
+    // var source = new ol.source.Vector();
+    // var vector = new ol.layer.Vector({
+    //     source: source
+    // });
+    // this.layers(vector)
+    // this.interactions(new ol.interaction.Draw(_.extend({
+    //     type: 'Circle'
+    // }, { source: source })));
+
+
+
+
+
 }
 
 

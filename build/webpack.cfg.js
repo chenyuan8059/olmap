@@ -31,6 +31,6 @@ module.exports = {
     externals: {
         openlayers:'ol'
     },
-    devtool: "source-map",
+    // devtool: "source-map",
     plugins: [new webpack.NoEmitOnErrorsPlugin(), new webpack.NoErrorsPlugin()]
 };

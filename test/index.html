@@ -13,8 +13,21 @@
     </head>
     <body>
         <div id="olmap-container"></div>
-        <div id="anchor">
-            <img src="./imgs/anchor.png" alt="示例锚点"/>
+        <div id="interactions">
+            <select id="draws-mode">
+                <option value="Line">画线</option>
+                <option value="Circle">画圆</option>
+            </select>
+            <input type="checkbox" id="enable-draws"/>
+            <label for="enable-draws">开启绘图</label>
+            <button id="move-center">移动中心点</button>
+            <button id="add-overlay">添加覆盖物</button>
+        </div>
+        
+        <div class="layers">
+            <div id="anchor">
+                <img src="./imgs/anchor.png" alt="示例锚点"/>
+            </div>
         </div>
     </body>
     <script src="./js/index.js"></script>
